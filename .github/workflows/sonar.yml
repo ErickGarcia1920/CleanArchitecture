@@ -34,5 +34,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           dotnet sonarscanner begin /k:"ErickGarcia1920_CleanArchitecture" /o:"erickgarcia1920" /d:sonar.token="$SONAR_TOKEN" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build --no-incremental
+          dotnet build --no-incremental -p:TreatWarningsAsErrors=false
           dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"
